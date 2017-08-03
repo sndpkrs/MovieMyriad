@@ -52,7 +52,9 @@
             
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Producer.Name)
+            <a href="@Url.Action("Details", "Producers", new { id = item.MovID })">
+                @Html.DisplayFor(modelItem => item.Producer.Name)
+            </a>
         </td>
         <td>
             @foreach (var i in item.ActorsList)
@@ -64,9 +66,15 @@
             }
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MovID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MovID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MovID })
+            <a href="@Url.Action("Edit", "Movies", new { id = item.MovID })">
+                <img alt="edit" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/edit.png" />
+            </a>
+            <a href="@Url.Action("Delete", "Movies", new { id = item.MovID })">
+                <img alt="delete" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/delete.png" />
+            </a> 
+            <a href="@Url.Action("Details", "Movies", new { id = item.MovID })">
+                <img alt="details" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/Details.jpg" />
+            </a>            
         </td>
     </tr>
 }

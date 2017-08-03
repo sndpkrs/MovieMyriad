@@ -35,7 +35,7 @@ namespace Myriad.Models
 
         public Nullable<int> ProID { get; set; }
 
-        [DisplayName("Producer1 Name")]
+        [DisplayName("Producer")]
         public Producer Producer { get; set; }
         [DisplayName("Actors")]
         public List<CheckActorsModel> ActorsList { get; set; }

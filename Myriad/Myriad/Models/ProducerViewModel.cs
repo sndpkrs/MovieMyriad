@@ -23,10 +23,12 @@ namespace Myriad.Models
         public int? Sex { get; set; }
 
         //[Range(typeof(DateTime), "01/10/1930", today, ErrorMessage = "Producer must be of age between 5 to 85")]
-        [DateRangeValidator(ErrorMessage = "Producer must be of age between 5 to 60")]
+        [DateRangeValidator]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Birthday"), DataType(DataType.Date, ErrorMessage = "Birthday should be date")]
         public Nullable<System.DateTime> DOB { get; set; }
+        
+        
         [DisplayName("About")]
         public string Bio { get; set; }
     }

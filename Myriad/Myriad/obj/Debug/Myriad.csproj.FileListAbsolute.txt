@@ -170,6 +170,6 @@ F:\Fit\MovieMyriad\Myriad\Myriad\bin\Microsoft.Owin.Security.OAuth.xml
 F:\Fit\MovieMyriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Google.xml
 F:\Fit\MovieMyriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Twitter.xml
 F:\Fit\MovieMyriad\Myriad\Myriad\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Fit\MovieMyriad\Myriad\Myriad\obj\Debug\Myriad.csprojResolveAssemblyReference.cache
 F:\Fit\MovieMyriad\Myriad\Myriad\obj\Debug\Myriad.dll
 F:\Fit\MovieMyriad\Myriad\Myriad\obj\Debug\Myriad.pdb
-F:\Fit\MovieMyriad\Myriad\Myriad\obj\Debug\Myriad.csprojResolveAssemblyReference.cache
