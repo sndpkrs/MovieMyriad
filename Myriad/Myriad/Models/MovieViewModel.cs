@@ -16,9 +16,10 @@ namespace Myriad.Models
         [Key]
         public int MovID { get; set; }
 
-        [DisplayName("Movie"),Required]
+        [DisplayName("Movie"), Required]
         [DataType(DataType.Text, ErrorMessage = "Movie Name should be a text")]
         [StringLength(50, ErrorMessage = "Movie Name must not be more than 50 char")]
+        [RegularExpression("^([a-zA-Z0-9 ]+)$", ErrorMessage = "Movie Name can be alphanumeric only")]
         public string Name { get; set; }
 
         [DisplayName("Date of Release"), Required, DataType(DataType.Date, ErrorMessage = "Release Date should be a date")]
@@ -26,14 +27,14 @@ namespace Myriad.Models
 
         [StringLength(200, ErrorMessage = "Movie Plot must not be more than 200 char")]
         public string Plot { get; set; }
-        
+
 
         public string Poster { get; set; }
 
         [DisplayName("Producer Name")]
         [Required]
         public Nullable<int> ProID { get; set; }
-        
+
         [DisplayName("Producer1 Name")]
         public Producer Producer { get; set; }
         [DisplayName("Actors")]
