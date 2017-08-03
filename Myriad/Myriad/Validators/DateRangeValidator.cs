@@ -12,8 +12,8 @@ namespace Myriad.Validators
         public DateTime SecondDate { get; set; }
         public DateRangeValidator()
         {
-            FirstDate = Convert.ToDateTime("01/01/1950");
-            SecondDate = DateTime.Today;
+            FirstDate = DateTime.Now.AddYears(-90); ;
+            SecondDate = DateTime.Now.AddYears(-14);
         }
         
 
@@ -27,7 +27,7 @@ namespace Myriad.Validators
             }
             else
             {
-                return new ValidationResult("Must be of age between 5 to 60");
+                return new ValidationResult("Must be of age between 14 to 90");
             }
         }
     }

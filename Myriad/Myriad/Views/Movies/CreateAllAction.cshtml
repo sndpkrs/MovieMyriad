@@ -12,16 +12,19 @@
         $(document).ready(function () {
             $("#qq").click(function () {
                 //alert("AJAX request successfully completed");
-
+                $("#loading").show();
                 //$("#dvMovie").load('/Movies/CreateMoviesPartialView')
                 $.ajax({
                     url: '@Url.Action("nothing", "Movies")',//controller name and action
                     type: 'GET',
                     success: function (data) {
-                        $("#ActorsPartial").load('/Movies/CheckActorsPartialView')
+                        //$(this).before('<img src=" 	https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/loader.gif" alt="Loading..." />');
+                        $("#ActoshowrsPartial").load('/Movies/CheckActorsPartialView')
                         $("#CPpartial").load('/Movies/CheckProducerPartialView')
+                        $("#loading").hide();
 
-                    }
+                    },
+                    
                     //information for search
                 })
 
@@ -42,6 +45,7 @@
     <h4>Add To Catalogue</h4>
 
     <input id="qq" type="button" value=" Refresh " />
+    
 
     <div id="dvMovie">
         @using (Html.BeginForm("CreateAllAction", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -100,6 +104,8 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ActorsList, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10" >
+                    <img width="50" height="35" id="loading" style="display: none;"
+                         alt="Updating ..." src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/loading.gif" />
                     @if (Model.ActorsList != null)
                     {
                         <div id="ActorsPartial" class="text-danger">
