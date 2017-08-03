@@ -32,7 +32,7 @@ namespace Myriad.Models
         public string Poster { get; set; }
 
         [DisplayName("Producer Name")]
-        [Required]
+
         public Nullable<int> ProID { get; set; }
 
         [DisplayName("Producer1 Name")]

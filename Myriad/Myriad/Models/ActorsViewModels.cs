@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Myriad.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -29,7 +30,8 @@ namespace Myriad.Models
         public int Sex { get; set; }
 
         [DisplayName("Birthday"), DataType(DataType.Date, ErrorMessage = "Birthday should be date")]
-        [Range(typeof(DateTime), "01/10/1930", "01/01/2012", ErrorMessage = "Actor must be of age between 5 to 85")]
+        //[Range(typeof(DateTime), "01/10/1930", "01/01/2012", ErrorMessage = "Actor must be of age between 5 to 85")]
+        [DateRangeValidator]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> DOB { get; set; }
         [DisplayName("About")]

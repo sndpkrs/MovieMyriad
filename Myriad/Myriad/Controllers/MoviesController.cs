@@ -452,7 +452,7 @@ namespace Myriad.Controllers
 
         [HttpPost]
         //[ActionName("CreateCatalogue")]
-        public ActionResult CreateAllAction(MovieViewModel mvModel,int ProID, List<CheckActorsModel> caModel, HttpPostedFileBase file)
+        public ActionResult CreateAllAction(MovieViewModel mvModel,int? ProID, List<CheckActorsModel> caModel, HttpPostedFileBase file)
         {
             var movie = new Movie();
             movie.Name = mvModel.Name;
