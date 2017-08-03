@@ -1,0 +1,18 @@
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad.Models\bin\Debug\Myriad.Models.dll.config
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad.Models\bin\Debug\Myriad.Models.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad.Models\bin\Debug\Myriad.Models.pdb
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad.Models\bin\Debug\EntityFramework.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad.Models\bin\Debug\EntityFramework.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad.Models\obj\Debug\Myriad.Models.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad.Models\obj\Debug\Myriad.Models.pdb
+G:\Git\Myriad\Myriad\Myriad.Models\bin\Debug\Myriad.Models.dll.config
+G:\Git\Myriad\Myriad\Myriad.Models\bin\Debug\Myriad.Models.dll
+G:\Git\Myriad\Myriad\Myriad.Models\bin\Debug\Myriad.Models.pdb
+G:\Git\Myriad\Myriad\Myriad.Models\bin\Debug\EntityFramework.dll
+G:\Git\Myriad\Myriad\Myriad.Models\bin\Debug\EntityFramework.SqlServer.dll
+G:\Git\Myriad\Myriad\Myriad.Models\bin\Debug\EntityFramework.xml
+G:\Git\Myriad\Myriad\Myriad.Models\bin\Debug\EntityFramework.SqlServer.xml
+G:\Git\Myriad\Myriad\Myriad.Models\obj\Debug\Myriad.Models.dll
+G:\Git\Myriad\Myriad\Myriad.Models\obj\Debug\Myriad.Models.pdb

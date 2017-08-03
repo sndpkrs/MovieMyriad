@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyriadDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actor">
+    <Key>
+      <PropertyRef Name="ActID" />
+    </Key>
+    <Property Name="ActID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" />
+    <Property Name="Sex" Type="tinyint" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Bio" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Movie">
+    <Key>
+      <PropertyRef Name="MovID" />
+    </Key>
+    <Property Name="MovID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" />
+    <Property Name="ReleaseDate" Type="date" />
+    <Property Name="Plot" Type="varchar" MaxLength="200" />
+    <Property Name="Poster" Type="varchar" MaxLength="200" />
+    <Property Name="ProID" Type="int" />
+  </EntityType>
+  <EntityType Name="MovieActor">
+    <Key>
+      <PropertyRef Name="RelID" />
+    </Key>
+    <Property Name="RelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActID" Type="int" Nullable="false" />
+    <Property Name="MovID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producer">
+    <Key>
+      <PropertyRef Name="ProID" />
+    </Key>
+    <Property Name="ProID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" />
+    <Property Name="Sex" Type="tinyint" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Bio" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK__Movie__ProID__4CA06362">
+    <End Role="Producer" Type="Self.Producer" Multiplicity="0..1" />
+    <End Role="Movie" Type="Self.Movie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producer">
+        <PropertyRef Name="ProID" />
+      </Principal>
+      <Dependent Role="Movie">
+        <PropertyRef Name="ProID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieActo__ActID__5070F446">
+    <End Role="Actor" Type="Self.Actor" Multiplicity="1" />
+    <End Role="MovieActor" Type="Self.MovieActor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actor">
+        <PropertyRef Name="ActID" />
+      </Principal>
+      <Dependent Role="MovieActor">
+        <PropertyRef Name="ActID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MovieActo__MovID__5165187F">
+    <End Role="Movie" Type="Self.Movie" Multiplicity="1" />
+    <End Role="MovieActor" Type="Self.MovieActor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Movie">
+        <PropertyRef Name="MovID" />
+      </Principal>
+      <Dependent Role="MovieActor">
+        <PropertyRef Name="MovID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyriadDbModelStoreContainer">
+    <EntitySet Name="Actor" EntityType="Self.Actor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Movie" EntityType="Self.Movie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MovieActor" EntityType="Self.MovieActor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producer" EntityType="Self.Producer" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Movie__ProID__4CA06362" Association="Self.FK__Movie__ProID__4CA06362">
+      <End Role="Producer" EntitySet="Producer" />
+      <End Role="Movie" EntitySet="Movie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieActo__ActID__5070F446" Association="Self.FK__MovieActo__ActID__5070F446">
+      <End Role="Actor" EntitySet="Actor" />
+      <End Role="MovieActor" EntitySet="MovieActor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MovieActo__MovID__5165187F" Association="Self.FK__MovieActo__MovID__5165187F">
+      <End Role="Movie" EntitySet="Movie" />
+      <End Role="MovieActor" EntitySet="MovieActor" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

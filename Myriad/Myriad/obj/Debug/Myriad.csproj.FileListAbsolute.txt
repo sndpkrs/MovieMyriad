@@ -1,0 +1,116 @@
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Myriad.dll.config
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Myriad.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Myriad.pdb
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Antlr3.Runtime.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\EntityFramework.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\EntityFramework.SqlServer.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Myriad.Models.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Newtonsoft.Json.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Owin.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.Helpers.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.Mvc.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.Optimization.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.Razor.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.WebPages.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.WebPages.Razor.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\WebGrease.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Myriad.Models.pdb
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.Helpers.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.Mvc.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.Optimization.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.Razor.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.WebPages.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\System.Web.WebPages.Razor.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Antlr3.Runtime.pdb
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Newtonsoft.Json.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\EntityFramework.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\EntityFramework.SqlServer.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\obj\Debug\Myriad.csprojResolveAssemblyReference.cache
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\obj\Debug\Myriad.dll
+C:\Users\Sandeep\Documents\Visual Studio 2013\Projects\Myriad\Myriad\obj\Debug\Myriad.pdb
+G:\Git\Myriad\Myriad\Myriad\bin\Myriad.dll.config
+G:\Git\Myriad\Myriad\Myriad\bin\Myriad.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Myriad.pdb
+G:\Git\Myriad\Myriad\Myriad\bin\Antlr3.Runtime.dll
+G:\Git\Myriad\Myriad\Myriad\bin\AWSSDK.dll
+G:\Git\Myriad\Myriad\Myriad\bin\EntityFramework.dll
+G:\Git\Myriad\Myriad\Myriad\bin\EntityFramework.SqlServer.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.AspNet.Identity.Core.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Cookies.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Facebook.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Google.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.OAuth.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Twitter.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Web.Infrastructure.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Myriad.Models.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Newtonsoft.Json.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Owin.dll
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.Helpers.dll
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.Mvc.dll
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.Optimization.dll
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.Razor.dll
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.WebPages.Deployment.dll
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.WebPages.dll
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.WebPages.Razor.dll
+G:\Git\Myriad\Myriad\Myriad\bin\WebGrease.dll
+G:\Git\Myriad\Myriad\Myriad\bin\Myriad.Models.pdb
+G:\Git\Myriad\Myriad\Myriad\bin\AWSSDK.pdb
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.Helpers.xml
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.Mvc.xml
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.Optimization.xml
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.Razor.xml
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.WebPages.xml
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.WebPages.Deployment.xml
+G:\Git\Myriad\Myriad\Myriad\bin\System.Web.WebPages.Razor.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Antlr3.Runtime.pdb
+G:\Git\Myriad\Myriad\Myriad\bin\Newtonsoft.Json.xml
+G:\Git\Myriad\Myriad\Myriad\bin\EntityFramework.xml
+G:\Git\Myriad\Myriad\Myriad\bin\EntityFramework.SqlServer.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.AspNet.Identity.Core.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Facebook.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Cookies.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.OAuth.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Google.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.Twitter.xml
+G:\Git\Myriad\Myriad\Myriad\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\Git\Myriad\Myriad\Myriad\obj\Debug\Myriad.csprojResolveAssemblyReference.cache
+G:\Git\Myriad\Myriad\Myriad\obj\Debug\Myriad.dll
+G:\Git\Myriad\Myriad\Myriad\obj\Debug\Myriad.pdb
