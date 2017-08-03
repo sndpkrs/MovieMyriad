@@ -546,9 +546,8 @@ namespace Myriad.Controllers
 
 
         public void nothing()
-        {
-            Thread.Sleep(5000);
-        }
+        {}
+        
 
         protected override void Dispose(bool disposing)
         {
