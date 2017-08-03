@@ -88,37 +88,46 @@ namespace Myriad.Controllers
             var mvModel = new MovieViewModel();
 
             var mvModelList = new List<MovieViewModel>();
-            foreach (var item in movies)
+            try
             {
-                var results = from a in db.Actors
-                              select new
-                              {
-                                  a.ActID,
-                                  a.Name,
-                                  Checked = ((from ab in db.MovieActors
-                                              where ((item.MovID == ab.MovID) & (a.ActID == ab.ActID))
-                                              select ab).Count() > 0)
-
-                              };
-                var actorsList = new List<CheckActorsModel>();
-
-                foreach (var item1 in results)
+                foreach (var item in movies)
                 {
-                    actorsList.Add(new CheckActorsModel { id = item1.ActID, Name = item1.Name, isChecked = item1.Checked });
+                    var results = from a in db.Actors
+                                  select new
+                                  {
+                                      a.ActID,
+                                      a.Name,
+                                      Checked = ((from ab in db.MovieActors
+                                                  where ((item.MovID == ab.MovID) & (a.ActID == ab.ActID))
+                                                  select ab).Count() > 0)
+
+                                  };
+                    var actorsList = new List<CheckActorsModel>();
+
+                    foreach (var item1 in results)
+                    {
+                        actorsList.Add(new CheckActorsModel { id = item1.ActID, Name = item1.Name, isChecked = item1.Checked });
+                    }
+
+                    mvModelList.Add(new MovieViewModel
+                    {
+                        MovID = item.MovID,
+                        Name = item.Name,
+                        Producer = item.Producer,
+                        Plot = item.Plot,
+                        Poster = item.Poster,
+                        ProID = item.ProID,
+                        ReleaseDate = item.ReleaseDate,
+                        ActorsList = actorsList
+                    });
                 }
-
-                mvModelList.Add(new MovieViewModel
-                {
-                    MovID = item.MovID,
-                    Name = item.Name,
-                    Producer = item.Producer,
-                    Plot = item.Plot,
-                    Poster = item.Poster,
-                    ProID = item.ProID,
-                    ReleaseDate = item.ReleaseDate,
-                    ActorsList = actorsList
-                });
             }
+            catch (System.Data.Entity.Core.EntityException e)
+            {
+
+                return View("DbInstanceError");
+            }
+            
             return View(mvModelList);
         }
 

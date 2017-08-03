@@ -24,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Poster)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Producer.Name)
+            @Html.DisplayNameFor(model => model.Producer)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ActorsList)
@@ -52,7 +52,7 @@
             
         </td>
         <td>
-            <a href="@Url.Action("Details", "Producers", new { id = item.MovID })">
+            <a href="@Url.Action("Details", "Producers", new { id = item.ProID })">
                 @Html.DisplayFor(modelItem => item.Producer.Name)
             </a>
         </td>
@@ -61,7 +61,9 @@
             {
                 if (i.isChecked)
                 {
-                    <div>@i.Name</div>
+                    <a href="@Url.Action("Details", "Actors", new { id = i.id })">
+                        <div>@i.Name</div>
+                    </a>
                 }
             }
         </td>
