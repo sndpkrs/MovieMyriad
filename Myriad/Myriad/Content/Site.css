@@ -8,6 +8,26 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+.lrow {
+    width:65%;
+    height:80vh;
+    float:left;
+}
+
+.rrow {
+    padding-top: 50px;
+    padding-right: 10px;
+    width:30%;
+    height:100%;
+    float:right;
+}
+.vertical{
+  width:2px;
+  display:table-cell;
+  background-color:black;
+  height:100%;
+}
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 

@@ -270,6 +270,9 @@
     <Content Include="Views\Shared\_CustomLayout.cshtml" />
     <Content Include="Views\Actors\Details.cshtml" />
     <Content Include="Views\Shared\DbInstanceError.cshtml" />
+    <Content Include="Views\Producers\DetailsPartial.cshtml" />
+    <Content Include="Views\Actors\DetailsPartial.cshtml" />
+    <Content Include="Views\Movies\DetailsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\img\" />

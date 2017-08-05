@@ -182,9 +182,11 @@ namespace Myriad.Controllers
         }
 
 
-
-        
-
+        public PartialViewResult DetailsPartial(int id)
+        {
+            Movie movie = db.Movies.Find(id);
+            return PartialView(movie);
+        }
 
 
         // GET: Movies/Edit/5

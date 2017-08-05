@@ -4,81 +4,97 @@
     ViewBag.Title = "Index";
 }
 
+@section scripts
+{
+    <script type="text/javascript" src="~/Scripts/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
 <h2>Catalogue</h2>
 
 <p>
     @Html.ActionLink("Add to the Catalogue", "CreateAllAction")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReleaseDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Plot)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Poster)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Producer)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ActorsList)
-        </th>
 
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReleaseDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Plot)
-        </td>
-        <td>
-            @if (item.Poster != null)
+<div class="mainDiv">
+    <div id="pointer" class="lrow" style="overflow-y:scroll">
+        <table class="table">
+            @foreach (var item in Model)
             {
-                <img width="100" height="100" src=@Url.Content(item.Poster) alt="Can't Load Image'" />
-            }
-            
-        </td>
-        <td>
-            <a href="@Url.Action("Details", "Producers", new { id = item.ProID })">
-                @Html.DisplayFor(modelItem => item.Producer.Name)
-            </a>
-        </td>
-        <td>
-            @foreach (var i in item.ActorsList)
-            {
-                if (i.isChecked)
-                {
-                    <a href="@Url.Action("Details", "Actors", new { id = i.id })">
-                        <div>@i.Name</div>
-                    </a>
-                }
-            }
-        </td>
-        <td>
-            <a href="@Url.Action("Edit", "Movies", new { id = item.MovID })">
-                <img alt="edit" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/edit.png" />
-            </a>
-            <a href="@Url.Action("Delete", "Movies", new { id = item.MovID })">
-                <img alt="delete" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/delete.png" />
-            </a> 
-            <a href="@Url.Action("Details", "Movies", new { id = item.MovID })">
-                <img alt="details" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/Details.jpg" />
-            </a>            
-        </td>
-    </tr>
-}
+                <tr>
+                    <th>
+                        <h4>
+                            @Ajax.ActionLink(item.Name, "DetailsPartial", "Movies",
+            new { id = item.MovID },
+            new AjaxOptions
+                 {
+                     UpdateTargetId = "divDetails", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+                            
+                        </h4>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @if (item.Poster != null)
+                        {
+                            <img width="100" height="100" src=@Url.Content(item.Poster) alt="Can't Load Image'" />
+                        }
+                    </td>
+                    <td>
+                        <strong>@Html.DisplayNameFor(model => model.ReleaseDate)</strong>
+                        @Html.DisplayFor(model => item.ReleaseDate)<br />
 
-</table>
+                        <strong>@Html.DisplayNameFor(model => model.Producer)</strong>
+                        
+                        @Ajax.ActionLink(item.Producer.Name, "DetailsPartial", "Producers",
+            new { id = item.ProID },
+            new AjaxOptions
+                 {
+                     UpdateTargetId = "divDetails", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+                        <br />
+
+                        <strong>@Html.DisplayNameFor(model => model.ActorsList)</strong>
+                        @foreach (var i in item.ActorsList)
+                        {
+                            if (i.isChecked)
+                            {
+                                @Ajax.ActionLink(i.Name, "DetailsPartial", "Actors",
+            new { id = i.id },
+            new AjaxOptions
+                 {
+                     UpdateTargetId = "divDetails", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+                            @:&nbsp;
+                            }
+                            
+                        }
+                        <br />
+                        <a href="@Url.Action("Edit", "Movies", new { id = item.MovID })">
+                            <img alt="edit" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/edit.png" />
+                        </a>
+                        <a href="@Url.Action("Delete", "Movies", new { id = item.MovID })">
+                            <img alt="delete" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/delete.png" />
+                        </a>
+                        <a href="@Url.Action("Details", "Movies", new { id = item.MovID })">
+                            <img alt="details" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/Details.jpg" />
+                        </a>
+
+                    </td>
+                </tr>
+
+            }
+        </table>
+    </div>
+    <div class="vertical"></div>
+    <div id="divDetails" class="rrow">
+
+    </div>
+</div>

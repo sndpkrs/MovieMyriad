@@ -35,6 +35,11 @@ namespace Myriad.Controllers
             return View(producer);
         }
 
+        public PartialViewResult DetailsPartial(int id)
+        {
+            Producer producer = db.Producers.Find(id);
+            return PartialView(producer);
+        }
         // GET: Producers/Create
         public ActionResult Create()
         {

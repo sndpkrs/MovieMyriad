@@ -29,7 +29,6 @@
             {
                 @:Others
             }
-            
         </dd>
 
         <dt>
@@ -37,7 +36,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DOB)
+            @*@Html.DisplayFor(model => model.DOB.Value.ToShortDateString())*@
+            @Model.DOB.Value.ToShortDateString()
         </dd>
 
         <dt>
@@ -50,7 +50,4 @@
 
     </dl>
 </div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ActID }) |*@
-    @Html.ActionLink("Back to Catalogue", "Index","Movies")
-</p>
+

@@ -35,6 +35,13 @@ namespace Myriad.Controllers
             return View(actor);
         }
 
+
+        public PartialViewResult DetailsPartial(int id)
+        {
+            Actor actor = db.Actors.Find(id);
+            return PartialView(actor);
+        }
+
         // GET: Actors/Create
         public ActionResult Create()
         {

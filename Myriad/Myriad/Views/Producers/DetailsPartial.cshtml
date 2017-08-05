@@ -1,7 +1,9 @@
-﻿@model Myriad.Models.Actor
+﻿@model Myriad.Models.Producer
 
-<div>
-    <h4>Actor</h4>
+<div class="body">
+    
+        <h4>Producer</h4>
+  
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -29,7 +31,6 @@
             {
                 @:Others
             }
-            
         </dd>
 
         <dt>
@@ -37,7 +38,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DOB)
+            @Model.DOB.Value.ToShortDateString()
         </dd>
 
         <dt>
@@ -50,7 +51,3 @@
 
     </dl>
 </div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ActID }) |*@
-    @Html.ActionLink("Back to Catalogue", "Index","Movies")
-</p>
