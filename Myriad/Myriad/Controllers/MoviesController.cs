@@ -80,52 +80,57 @@ namespace Myriad.Controllers
             }
             return actorsList;
         }
+
+        [OutputCache(Duration = 10)]
         // GET: Movies
         public ActionResult Index()
         {
             
-            db.SaveChanges();
             var movies = db.Movies.Include(m => m.Producer);
             var mvModel = new MovieViewModel();
-
             var mvModelList = new List<MovieViewModel>();
+
             try
             {
-                foreach (var item in movies)
+
+                using (MyriadDbEntities db1= new MyriadDbEntities())
                 {
-                    var results = from a in db.Actors
-                                  select new
-                                  {
-                                      a.ActID,
-                                      a.Name,
-                                      Checked = ((from ab in db.MovieActors
-                                                  where ((item.MovID == ab.MovID) & (a.ActID == ab.ActID))
-                                                  select ab).Count() > 0)
-
-                                  };
-                    var actorsList = new List<CheckActorsModel>();
-
-                    foreach (var item1 in results)
+                    db1.Database.Connection.Open();
+                    foreach (var item in movies)
                     {
-                        actorsList.Add(new CheckActorsModel { id = item1.ActID, Name = item1.Name, isChecked = item1.Checked });
-                    }
+                        var results = from a in db1.Actors
+                                      select new
+                                      {
+                                          a.ActID,
+                                          a.Name,
+                                          Checked = ((from ab in db1.MovieActors
+                                                      where ((item.MovID == ab.MovID) & (a.ActID == ab.ActID))
+                                                      select ab).Count() > 0)
 
-                    mvModelList.Add(new MovieViewModel
-                    {
-                        MovID = item.MovID,
-                        Name = item.Name,
-                        Producer = item.Producer,
-                        Plot = item.Plot,
-                        Poster = item.Poster,
-                        ProID = item.ProID,
-                        ReleaseDate = item.ReleaseDate,
-                        ActorsList = actorsList
-                    });
+                                      };
+                        var actorsList = new List<CheckActorsModel>();
+
+                        foreach (var item1 in results)
+                        {
+                            actorsList.Add(new CheckActorsModel { id = item1.ActID, Name = item1.Name, isChecked = item1.Checked });
+                        }
+
+                        mvModelList.Add(new MovieViewModel
+                        {
+                            MovID = item.MovID,
+                            Name = item.Name,
+                            Producer = item.Producer,
+                            Plot = item.Plot,
+                            Poster = item.Poster,
+                            ProID = item.ProID,
+                            ReleaseDate = item.ReleaseDate,
+                            ActorsList = actorsList
+                        });
+                    } 
                 }
             }
             catch (System.Data.Entity.Core.EntityException e)
             {
-
                 return View("DbInstanceError");
             }
             
@@ -356,100 +361,12 @@ namespace Myriad.Controllers
             return View(producerModel);
         }
 
-        //third trial
-
-        //ActionName("AddMovie")]
-        public PartialViewResult CreateMoviesPartialView(int? id)
-        {
-            var movieModel = new MovieViewModel();
-            movieModel.ActorsList = GetAactorsCheckList();
-            Movie movie = new Movie();
-            ViewBag.ProID = new SelectList(db.Producers, "ProID", "Name", movie.ProID);
-
-            return PartialView("CreateMoviesPartialView", movieModel);
-        }
-        //fghjhvm
-        [HttpPost]
-        //[ActionName("AddMovie")]
-        public ActionResult CreateMoviesPartialView(MovieViewModel mvModel, List<CheckActorsModel> caModel, HttpPostedFileBase file)
-        {
-            var movie = new Movie();
-            movie.Name = mvModel.Name;
-            movie.Plot = mvModel.Plot;
-
-            movie.ReleaseDate = mvModel.ReleaseDate;
-            movie.ProID = mvModel.ProID;
-            mvModel.ActorsList = caModel;
-            if (ModelState.IsValid)
-            {
-                //movie.Poster = file.ToString();
-                var fileName = Path.GetFileName(file.FileName); //getting only file name(ex-ganesh.jpg)  
-                //var ext = Path.GetExtension(file.FileName); //getting the extension(ex-.jpg)  
-                //if (ext == ".jpg") //check what type of extension  
-                //{
-                    string keyname = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension  
-                //    string myfile = name + "_" + movie.MovID + ext; //appending the name with id  
-                //    // store the file inside ~/project folder(Img)  
-                //    var path = Path.Combine(Server.MapPath("~/App_Data/img"), myfile);
-                //    //var path = Path.Combine("https://drive.google.com/drive/folders/0B0iUAcFc1a98Ni1wMGVIdGhGSlU",myfile);
-                //    movie.Poster = path;
-                //    file.SaveAs(path);
-                //}
-                //else
-                //{
-                //    ViewBag.message = "Please choose only Image file";
-                //}
-
-
-                try
-                {
-                    IAmazonS3 client;
-                    using (client = Amazon.AWSClientFactory.CreateAmazonS3Client(_awsAccessKey, _awsSecretKey))
-                    {
-                        var request = new PutObjectRequest()
-                        {
-                            BucketName = _bucketName,
-                            CannedACL = S3CannedACL.PublicRead,//PERMISSION TO FILE PUBLIC ACCESIBLE
-                            Key = string.Format("UPLOADS/{0}", file.FileName),
-                            InputStream = file.InputStream//SEND THE FILE STREAM
-                        };
-
-                        client.PutObject(request);
-                    }
-                }
-                catch (Exception ex)
-                {
-
-
-                }
-                movie.Poster = "https://"+"s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/" + keyname + ".jpg";
-
-
-                db.Movies.Add(movie);
-                if (mvModel.ActorsList != null)
-                {
-                    foreach (var item in mvModel.ActorsList)
-                    {
-                        if (item.isChecked)
-                            db.MovieActors.Add(new MovieActor() { MovID = movie.MovID, ActID = item.id });
-                    }
-                }
-
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            CreateAll c = new CreateAll();
-            c.movieModel = mvModel;
-            ViewBag.ProID = new SelectList(db.Producers, "ProID", "Name", movie.ProID);
-            TempData["doc"] = c;
-            return RedirectToAction("AddToCatalogue",c);
-            //return View(mvModel);
-        }
+        
 
         //[ActionName("CreateCatalogue")]
+        [OutputCache(Duration = 5)]
         public ActionResult CreateAllAction()
         {
-            
             var movieModel = new MovieViewModel();
             
             movieModel.ActorsList = GetAactorsCheckList();
@@ -473,8 +390,12 @@ namespace Myriad.Controllers
             mvModel.ActorsList = caModel;
             if (ModelState.IsValid)
             {
-                if(file!=null)
-                movie.Poster = UploadAndRetreieveUrl(file);
+                if (file != null && (Path.GetFileNameWithoutExtension(file.FileName)==".jpg"
+                                     || Path.GetFileNameWithoutExtension(file.FileName) == ".JPG"
+                                     || Path.GetFileNameWithoutExtension(file.FileName) == ".jpeg"
+                                     || Path.GetFileNameWithoutExtension(file.FileName) == ".JPEG"))
+                    movie.Poster = UploadAndRetreieveUrl(file);
+
                 db.Movies.Add(movie);
                 if (mvModel.ActorsList != null)
                 {
