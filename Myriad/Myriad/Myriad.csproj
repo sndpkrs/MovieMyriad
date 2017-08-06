@@ -167,6 +167,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\ProducersController.cs" />
+    <Compile Include="CustomHelpers\CustomHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -249,7 +250,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Movies\Create.cshtml" />
     <Content Include="Views\Movies\Delete.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\Edit.cshtml" />
@@ -260,11 +260,9 @@
     <Content Include="Views\Producers\Details.cshtml" />
     <Content Include="Views\Producers\Edit.cshtml" />
     <Content Include="Views\Producers\Index.cshtml" />
-    <Content Include="Views\Movies\CreateMovies.cshtml" />
     <Content Include="Views\Shared\CreateActorPartialView.cshtml" />
     <Content Include="Views\Shared\CreateProducerPartialView.cshtml" />
     <Content Include="Views\Shared\CreateMoviesPartialView.cshtml" />
-    <Content Include="Views\Movies\AddToCatalogue.cshtml" />
     <Content Include="Views\Shared\CheckActorsPartialView.cshtml" />
     <Content Include="Views\Shared\CheckProducerPartialView.cshtml" />
     <Content Include="Views\Shared\_CustomLayout.cshtml" />

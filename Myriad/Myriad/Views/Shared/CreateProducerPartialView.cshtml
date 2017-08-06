@@ -5,11 +5,11 @@
     <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 }
 
-@using (Ajax.BeginForm("CreateProducerPartialView", "Movies",
+@using (Ajax.BeginForm("CreateProducerPartialView", "Producers",
      new AjaxOptions
      {
          HttpMethod = "POST",
-         UpdateTargetId = "divProducer",
+         UpdateTargetId = "divCreate",
          InsertionMode = InsertionMode.Replace
      }))
 {
@@ -61,6 +61,4 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

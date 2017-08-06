@@ -71,6 +71,37 @@ namespace Myriad.Controllers
             return View(actor);
         }
 
+        public PartialViewResult CreateActorPartialView()
+        {
+            ActorsViewModels actor = new ActorsViewModels();
+            Movie movie = new Movie();
+            ViewBag.ProID = new SelectList(db.Producers, "ProID", "Name", movie.ProID);
+            ViewBag.Sex = new SelectList(MoviesController.GetGender(), "Value", "Text", actor.Sex);
+            return PartialView("CreateActorPartialView");
+        }
+
+        [HttpPost]
+        //,ActionName("CreateActor")
+        public ActionResult CreateActorPartialView(ActorsViewModels actorModel)
+        {
+
+            if (ModelState.IsValid)
+            {
+                Actor actor = new Actor();
+                actor.Name = actorModel.Name;
+                actor.Sex = (byte)actorModel.Sex;
+                actor.Bio = actorModel.Bio;
+                actor.DOB = actorModel.DOB;
+                actor.MovieActors = actorModel.MovieActors;
+                db.Actors.Add(actor);
+                db.SaveChanges();
+
+                return Content("Actor Added Successfully");
+            }
+            ViewBag.Sex = new SelectList(MoviesController.GetGender(), "Value", "Text", actorModel.Sex);
+            return View(actorModel);
+        }
+
         // GET: Actors/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -126,6 +157,14 @@ namespace Myriad.Controllers
             db.Actors.Remove(actor);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CheckActorsPartialView(MovieViewModel m)
+        {
+            var actorsList = new List<CheckActorsModel>();
+            MoviesController mc = new MoviesController();
+            actorsList = mc.GetActorsCheckList();
+            return View(actorsList);
         }
 
         protected override void Dispose(bool disposing)

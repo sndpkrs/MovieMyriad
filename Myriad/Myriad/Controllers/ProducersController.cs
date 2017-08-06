@@ -63,6 +63,36 @@ namespace Myriad.Controllers
             return View(producer);
         }
 
+        //[ActionName("CreateProducer")]
+        public PartialViewResult CreateProducerPartialView()
+        {
+            Producer pro = new Producer();
+            ViewBag.Sex = new SelectList(MoviesController.GetGender(), "Value", "Text", pro.Sex);
+
+            return PartialView("CreateProducerPartialView");
+        }
+
+        [HttpPost]
+        //[ActionName("CreateProducer")]
+        public ActionResult CreateProducerPartialView(ProducerViewModel producerModel)
+        {
+            if (ModelState.IsValid)
+            {
+                Producer producer = new Producer();
+                producer.Name = producerModel.Name;
+                producer.Sex = (byte)producerModel.Sex;
+                producer.Bio = producerModel.Bio;
+                producer.DOB = producerModel.DOB;
+
+                db.Producers.Add(producer);
+                db.SaveChanges();
+
+                return Content("Producer Added Successfully");
+            }
+            ViewBag.Sex = new SelectList(MoviesController.GetGender(), "Value", "Text", producerModel.Sex);
+            return View(producerModel);
+        }
+
         // GET: Producers/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -118,6 +148,13 @@ namespace Myriad.Controllers
             db.Producers.Remove(producer);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult CheckProducerPartialView()
+        {
+            ProducerViewModel model = new ProducerViewModel();
+            ViewBag.ProID = new SelectList(db.Producers, "ProID", "Name", model.ProID);
+            return View();
         }
 
         protected override void Dispose(bool disposing)

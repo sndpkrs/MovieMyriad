@@ -10,17 +10,16 @@
     <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script>
         $(document).ready(function () {
-            $("#qq").click(function () {
+            $("#refresh").click(function () {
                 //alert("AJAX request successfully completed");
                 $("#loading").show();
-                //$("#dvMovie").load('/Movies/CreateMoviesPartialView')
                 $.ajax({
                     url: '@Url.Action("nothing", "Movies")',//controller name and action
                     type: 'GET',
                     success: function (data) {
                         //$(this).before('<img src=" 	https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/loader.gif" alt="Loading..." />');
-                        $("#ActorsPartial").load('/Movies/CheckActorsPartialView')
-                        $("#CPpartial").load('/Movies/CheckProducerPartialView')
+                        $("#ActorsPartial").load('/Actors/CheckActorsPartialView')
+                        $("#CPpartial").load('/Producers/CheckProducerPartialView')
                         $("#loading").hide();
 
                     },
@@ -44,10 +43,10 @@
 <div id="core">
     <h4>Add To Catalogue</h4>
 
-    <input id="qq" type="button" value=" Refresh " />
+    <input id="refresh" type="button" value=" Refresh " />
     
 
-    <div id="dvMovie">
+    <div id="dvMovie" class="lrow">
         @using (Html.BeginForm("CreateAllAction", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
@@ -122,41 +121,31 @@
             </div>
         }
         </div>
-
-        
-
-
-
-        <table class="table">
+    <div class="rrow">
+        <table>
             <tr>
                 <th>
-                    @Ajax.ActionLink("Add Actor", "CreateActorPartialView", new AjaxOptions
-            {
-                HttpMethod = "GET",
-                UpdateTargetId = "divActor",
-                InsertionMode = InsertionMode.Replace
-            })
-                </th>
-                <th>
-                    @Ajax.ActionLink("Add Producer", "CreateProducerPartialView", new AjaxOptions
-            {
-                HttpMethod = "GET",
-                UpdateTargetId = "divProducer",
-                InsertionMode = InsertionMode.Replace
-            })
+                    @Ajax.ActionLink("Add Actor", "CreateActorPartialView","Actors", new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        UpdateTargetId = "divCreate",
+                        InsertionMode = InsertionMode.Replace
+                    })
+                    <br />
+                    @Ajax.ActionLink("Add Producer", "CreateProducerPartialView","Producers", new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        UpdateTargetId = "divCreate",
+                        InsertionMode = InsertionMode.Replace
+                    })
                 </th>
             </tr>
             <tr>
                 <td>
-                    <div id="divActor"></div>
-                </td>
-                <td>
-                    <div id="divProducer"></div>
+                    <div id="divCreate"></div>
                 </td>
             </tr>
         </table>
     </div>
-
-
-
+</div>
 

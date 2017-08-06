@@ -1,6 +1,8 @@
-﻿@model IEnumerable<Myriad.Models.MovieViewModel>
+﻿@using Myriad.CustomHelpers
+@model IEnumerable<Myriad.Models.MovieViewModel>
 
 @{
+ 
     ViewBag.Title = "Index";
 }
 
@@ -8,6 +10,25 @@
 {
     <script type="text/javascript" src="~/Scripts/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".detailsMovie").click(function () {
+                $("#loading").show();
+                $.ajax({
+                    url: '@Url.Action("DetailsPartial", "Movies")',//controller name and action
+                    type: 'GET',
+                     
+                    success: function (data) {
+                        //$(this).before('<img src=" 	https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/loader.gif" alt="Loading..." />');
+                        $("#divDetails").load('/Movies/DetailsPartial')
+                        $("#loading").hide();
+                    },
+                })
+            });
+        });
+
+    </script>
+
 }
 <h2>Catalogue</h2>
 
@@ -83,10 +104,7 @@
                         <a href="@Url.Action("Delete", "Movies", new { id = item.MovID })">
                             <img alt="delete" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/delete.png" />
                         </a>
-                        <a href="@Url.Action("Details", "Movies", new { id = item.MovID })">
-                            <img alt="details" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/Details.jpg" />
-                        </a>
-
+                         @Ajax.ImageActionLink("https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/Details.jpg",25,20, "Details", "DetailsPartial", new { id = item.MovID }, new AjaxOptions { UpdateTargetId = "divDetails" })
                     </td>
                 </tr>
 
