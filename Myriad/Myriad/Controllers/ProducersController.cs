@@ -90,7 +90,7 @@ namespace Myriad.Controllers
                 return Content("Producer Added Successfully");
             }
             ViewBag.Sex = new SelectList(MoviesController.GetGender(), "Value", "Text", producerModel.Sex);
-            return View(producerModel);
+            return PartialView(producerModel);
         }
 
         // GET: Producers/Edit/5
@@ -154,7 +154,7 @@ namespace Myriad.Controllers
         {
             ProducerViewModel model = new ProducerViewModel();
             ViewBag.ProID = new SelectList(db.Producers, "ProID", "Name", model.ProID);
-            return View();
+            return PartialView();
         }
 
         protected override void Dispose(bool disposing)

@@ -271,6 +271,8 @@
     <Content Include="Views\Producers\DetailsPartial.cshtml" />
     <Content Include="Views\Actors\DetailsPartial.cshtml" />
     <Content Include="Views\Movies\DetailsPartial.cshtml" />
+    <Content Include="Views\Movies\EditError.cshtml" />
+    <Content Include="Views\Movies\EditPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\img\" />

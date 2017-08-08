@@ -8,6 +8,7 @@
 @using (Ajax.BeginForm("CreateProducerPartialView", "Producers",
      new AjaxOptions
      {
+         OnComplete ="Update",
          HttpMethod = "POST",
          UpdateTargetId = "divCreate",
          InsertionMode = InsertionMode.Replace
@@ -55,10 +56,20 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Add To Industry" class="btn btn-default" />
+                <input id="btnProducer" type="submit" value="Add To Industry" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
+<script type="text/javascript">
+    function Update() {
+        if (document.getElementById("divCreate").innerHTML == "Producer Added Successfully")
+        {
+            $("#loading").show();
+            $("#CPpartial").load('/Producers/CheckProducerPartialView')
+            $("#loading").hide();
+        } 
+    }
+</script>
 

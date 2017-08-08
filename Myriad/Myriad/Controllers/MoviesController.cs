@@ -87,7 +87,7 @@ namespace Myriad.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            
+        
             var movies = db.Movies.Include(m => m.Producer);
             var mvModel = new MovieViewModel();
             var mvModelList = new List<MovieViewModel>();
@@ -131,8 +131,14 @@ namespace Myriad.Controllers
                     } 
                 }
             }
-            catch (System.Data.Entity.Core.EntityException e)
+            catch (System.Data.Entity.Core.EntityException )
             {
+                ViewBag.error = "We are experiencing huge traffic now";
+                return View("DbInstanceError");
+            }
+            catch (System.Data.SqlClient.SqlException )
+            {
+                ViewBag.error = "Your network is a bit slow to catch up";
                 return View("DbInstanceError");
             }
             
@@ -184,24 +190,40 @@ namespace Myriad.Controllers
         }
 
 
-        public PartialViewResult DetailsPartial(int id)
+        public PartialViewResult DetailsPartial(int? id)
         {
+            if (id == null)
+            {
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                ViewBag.status = "Bad Request";
+                return PartialView("EditError.cshtml");
+            }
             Movie movie = db.Movies.Find(id);
+            if (movie == null)
+            {
+                ViewBag.status = "This movie does not exist in the catalogue";
+                //return HttpNotFound();
+                return PartialView("EditError.cshtml");
+            }
             return PartialView(movie);
         }
 
 
         // GET: Movies/Edit/5
-        public ActionResult Edit(int? id)
+        public PartialViewResult EditPartial(int? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                ViewBag.status = "Bad Request";
+                return PartialView("EditError.cshtml");
             }
             Movie movie = db.Movies.Find(id);
             if (movie == null)
             {
-                return HttpNotFound();
+                ViewBag.status = "This movie does not exist in the catalogue";
+                //return HttpNotFound();
+                return PartialView("EditError.cshtml");
             }
 
             var results = from a in db.Actors
@@ -232,7 +254,7 @@ namespace Myriad.Controllers
             }
             moviewView.ActorsList = actorsList;
             ViewBag.ProID = new SelectList(db.Producers, "ProID", "Name", movie.ProID);
-            return View(moviewView);
+            return PartialView(moviewView);
         }
 
         // POST: Movies/Edit/5
@@ -240,7 +262,7 @@ namespace Myriad.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(MovieViewModel mvModel, HttpPostedFileBase file)
+        public ActionResult EditPartial(MovieViewModel mvModel, HttpPostedFileBase file)
         {
 
             var movie = db.Movies.Find(mvModel.MovID);
@@ -265,10 +287,10 @@ namespace Myriad.Controllers
                 }
 
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Content(mvModel.Name + " details sucessfully updated");
             }
             ViewBag.ProID = new SelectList(db.Producers, "ProID", "Name", movie.ProID);
-            return View(movie);
+            return PartialView(mvModel);
         }
 
         // GET: Movies/Delete/5
@@ -356,12 +378,6 @@ namespace Myriad.Controllers
 
             return View(mvModel);
         }
-
-
-
-        public void nothing()
-        {}
-        
 
         protected override void Dispose(bool disposing)
         {

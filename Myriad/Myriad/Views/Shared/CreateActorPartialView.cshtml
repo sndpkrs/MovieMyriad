@@ -1,17 +1,20 @@
 ﻿@model Myriad.Models.ActorsViewModels
+@Scripts.Render("~/bundles/jquery")
 @section scripts
 {
     <script type="text/javascript" src="~/Scripts/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
 }
-
+@*@using (Html.BeginForm("CreateActorPartialView", "Actors", FormMethod.Post))*@
 @using (Ajax.BeginForm("CreateActorPartialView", "Actors",
      new AjaxOptions
      {
+         OnComplete="Update",
          HttpMethod = "POST",
          UpdateTargetId = "divCreate",
-         InsertionMode = InsertionMode.Replace
-     }))
+         InsertionMode = InsertionMode.Replace,
+     }
+     ))
 {
     @Html.AntiForgeryToken()
     
@@ -31,7 +34,7 @@
             @Html.LabelFor(model => model.Sex, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.DropDownList("Sex", null,"select gender" , htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("Sex", null, "select gender", htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -55,11 +58,37 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Add To Industry" class="btn btn-default" />
+                <input id="btnActor" type="submit" value="Add To Industry" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
+<script type="text/javascript">
+    @*$(document).ready(function () {
+        
+        $("#btnActor").click(function () {
+            $("#divCreate").change(function(){
+                if('#divCreate:contains("Added")')
+                    $("#ActorsPartial").load('/Actors/CheckActorsPartialView')
+            });
+            alert("clicked");
+            $("#ActorsPartial").load('/Actors/CheckActorsPartialView')
+            
+            $("#CPpartial").load('/Producers/CheckProducerPartialView')
+            
+        })
+    });*@
 
+    function Update() {
+        if (document.getElementById("divCreate").innerHTML == "Actor Added Successfully")
+        {
+            $("#loading").show();
+            $("#ActorsPartial").load('/Actors/CheckActorsPartialView');
+            $("#loading").hide();
+        }
+    }
+</script>
+
+ 
 

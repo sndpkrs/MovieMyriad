@@ -98,9 +98,7 @@
                             
                         }
                         <br />
-                        <a href="@Url.Action("Edit", "Movies", new { id = item.MovID })">
-                            <img alt="edit" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/edit.png" />
-                        </a>
+                        @Ajax.ImageActionLink("https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/edit.png", 25, 20, "Edit", "EditPartial", new { id = item.MovID }, new AjaxOptions { UpdateTargetId = "divDetails" })
                         <a href="@Url.Action("Delete", "Movies", new { id = item.MovID })">
                             <img alt="delete" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/delete.png" />
                         </a>

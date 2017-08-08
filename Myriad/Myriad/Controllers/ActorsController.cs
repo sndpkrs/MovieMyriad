@@ -99,7 +99,7 @@ namespace Myriad.Controllers
                 return Content("Actor Added Successfully");
             }
             ViewBag.Sex = new SelectList(MoviesController.GetGender(), "Value", "Text", actorModel.Sex);
-            return View(actorModel);
+            return PartialView(actorModel);
         }
 
         // GET: Actors/Edit/5
@@ -164,7 +164,7 @@ namespace Myriad.Controllers
             var actorsList = new List<CheckActorsModel>();
             MoviesController mc = new MoviesController();
             actorsList = mc.GetActorsCheckList();
-            return View(actorsList);
+            return PartialView(actorsList);
         }
 
         protected override void Dispose(bool disposing)
