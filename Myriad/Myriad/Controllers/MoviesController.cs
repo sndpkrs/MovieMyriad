@@ -75,11 +75,23 @@ namespace Myriad.Controllers
                           };
 
             var actorsList = new List<CheckActorsModel>();
-
-            foreach (var item in results)
+            try
             {
-                actorsList.Add(new CheckActorsModel { id = item.ActID, Name = item.Name, isChecked = item.Checked });
+                foreach (var item in results)
+                {
+                    actorsList.Add(new CheckActorsModel { id = item.ActID, Name = item.Name, isChecked = item.Checked });
+                }
             }
+            catch (System.Data.Entity.Core.EntityException)
+            {
+                ViewBag.error = "We are experiencing huge traffic now";
+                
+            }
+            catch (System.Data.SqlClient.SqlException)
+            {
+                ViewBag.error = "Your network is a bit slow to catch up";
+            }
+            
             return actorsList;
         }
 
@@ -294,18 +306,29 @@ namespace Myriad.Controllers
         }
 
         // GET: Movies/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id,int? log)
         {
+            string returnUrL = Url.Content("/Movies/Delete/" + id);
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Movie movie = db.Movies.Find(id);
-            if (movie == null)
-            {
-                return HttpNotFound();
-            }
-            return View(movie);
+            //if (log == null)
+            //    return RedirectToAction("MyriadLogin", "Account");
+            //else
+            //{
+                Movie movie = db.Movies.Find(id);
+                if (movie == null)
+                {
+                    return HttpNotFound();
+                }
+                if (Request.IsAjaxRequest())
+                    return PartialView(movie);
+                return View(movie);
+            //}
+                
+            
         }
 
         // POST: Movies/Delete/5

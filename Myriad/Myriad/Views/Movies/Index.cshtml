@@ -3,7 +3,7 @@
 
 @{
  
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Myriad";
 }
 
 @section scripts
@@ -95,14 +95,11 @@
                  })
                             @:&nbsp;
                             }
-                            
                         }
                         <br />
                         @Ajax.ImageActionLink("https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/edit.png", 25, 20, "Edit", "EditPartial", new { id = item.MovID }, new AjaxOptions { UpdateTargetId = "divDetails" })
-                        <a href="@Url.Action("Delete", "Movies", new { id = item.MovID })">
-                            <img alt="delete" height="25" width="20" src="https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/delete.png" />
-                        </a>
-                         @Ajax.ImageActionLink("https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/Details.jpg",25,20, "Details", "DetailsPartial", new { id = item.MovID }, new AjaxOptions { UpdateTargetId = "divDetails" })
+                        @Ajax.ImageActionLink("https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/delete.png", 25, 20, "Delete", "Delete", new { id = item.MovID }, new AjaxOptions {  UpdateTargetId = "divDetails" } )
+                        @Ajax.ImageActionLink("https://s3-us-west-2.amazonaws.com/myriadposterappharbour/UPLOADS/Details.jpg",25,20, "Details", "DetailsPartial", new { id = item.MovID }, new AjaxOptions { UpdateTargetId = "divDetails" })
                     </td>
                 </tr>
 
@@ -110,7 +107,8 @@
         </table>
     </div>
     <div class="vertical"></div>
-    <div id="divDetails" class="rrow">
-
-    </div>
+    <div style="text-align:center" id="divDetails" class="rrow">
+        <h3><strong>Click</strong></h3> to view details<br />
+        <h3><strong>Movies&nbsp;Actors&nbsp; Producers</strong></h3>
+</div>
 </div>

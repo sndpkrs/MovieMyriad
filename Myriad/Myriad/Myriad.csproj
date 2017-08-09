@@ -273,6 +273,7 @@
     <Content Include="Views\Movies\DetailsPartial.cshtml" />
     <Content Include="Views\Movies\EditError.cshtml" />
     <Content Include="Views\Movies\EditPartial.cshtml" />
+    <Content Include="Views\Shared\MyriadLoginView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\img\" />

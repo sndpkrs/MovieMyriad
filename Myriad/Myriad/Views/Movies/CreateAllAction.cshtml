@@ -12,9 +12,6 @@
 <div id="core">
     <h4>Add To Catalogue</h4>
 
-    <input id="refresh" type="button" value=" Refresh " />
-    
-
     <div id="dvMovie" class="lrow">
         @using (Html.BeginForm("CreateAllAction", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
@@ -59,7 +56,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.ProID, "ProID", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Producer, "Producer", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div id="CPpartial" class="text-danger">
                             @Html.Partial("CheckProducerPartialView", Model)
@@ -94,19 +91,22 @@
         <table>
             <tr>
                 <th>
-                    @Ajax.ActionLink("Add Actor", "CreateActorPartialView","Actors", new AjaxOptions
+                    <h4>
+                        >
+                        @Ajax.ActionLink("Add Actor", "CreateActorPartialView", "Actors", new AjaxOptions
                     {
                         HttpMethod = "GET",
                         UpdateTargetId = "divCreate",
                         InsertionMode = InsertionMode.Replace
                     })
-                    <br />
-                    @Ajax.ActionLink("Add Producer", "CreateProducerPartialView","Producers", new AjaxOptions
+                        <br />
+                        >@Ajax.ActionLink("Add Producer", "CreateProducerPartialView", "Producers", new AjaxOptions
                     {
                         HttpMethod = "GET",
                         UpdateTargetId = "divCreate",
                         InsertionMode = InsertionMode.Replace
                     })
+                    </h4>
                 </th>
             </tr>
             <tr>

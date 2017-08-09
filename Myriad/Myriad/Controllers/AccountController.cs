@@ -12,7 +12,7 @@ using Myriad.Models;
 
 namespace Myriad.Controllers
 {
-    [Authorize]
+    
     public class AccountController : Controller
     {
         private ApplicationUserManager _userManager;
@@ -45,7 +45,33 @@ namespace Myriad.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return PartialView();
+        }
+
+      
+        public ActionResult MyriadLogin(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return PartialView();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult MyriadLogin(LoginViewModel model, string returnUrl)
+        {
+            if (!ModelState.IsValid)
+            {
+                return PartialView(model);
+            }
+            var result = (model.Email=="abc@Microsoft.com" && model.Password=="admin")?true:false;
+            if (result)
+                return Redirect(returnUrl);
+            else
+            {
+                ModelState.AddModelError("", "Invalid login attempt.");
+                return PartialView(model);
+            }
         }
 
         private ApplicationSignInManager _signInManager;
